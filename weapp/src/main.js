@@ -7,6 +7,8 @@ import _ from 'underscore'
 import { api } from '@/api'
 import { router } from './router'
 
+Vue.use(Vant)
+
 const $wx = wx
 
 Vue.prototype.$wx = $wx

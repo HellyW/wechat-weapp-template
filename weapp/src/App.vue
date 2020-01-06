@@ -9,7 +9,6 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   width: 100%;
-  max-width: 600px;
   margin: 0 auto;
   min-height: 100vh;
   background: #FFF;
@@ -18,6 +17,7 @@
 <template>
   <div id="app">
     <router-view/>
+    <van-number-keyboard safe-area-inset-bottom />
   </div>
 </template>
 
