@@ -55,7 +55,7 @@ wechatRouter.get('/',(req,res,next)=>{
   try{
     if(req.openid) return next()
     const queryData = req.query || {}
-    const fullURL =  req.protocol+ "://" + req.get('host') + req.originalUrl
+    const fullURL =  `${req.protocol}://${req.get('host')}${CONFIG.nginxPath}${req.originalUrl}`
     if(!queryData.code) return res.redirect(`https://open.weixin.qq.com/connect/oauth2/authorize?appid=${CONFIG.APPID}&redirect_uri=${decodeURIComponent(fullURL)}&response_type=code&scope=snsapi_base&state=${fullURL.split('#')[1]||""}#wechat_redirect`)
     request.get(`https://api.weixin.qq.com/sns/oauth2/access_token?appid=${CONFIG.APPID}&secret=${CONFIG.APPSERECT}&code=${queryData.code}&grant_type=authorization_code`,{},(error,response,data)=>{
       if(error) return res.send(err)

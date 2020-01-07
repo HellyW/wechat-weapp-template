@@ -14,8 +14,8 @@ app.use('/auth', require('./auth'))
 
 app.get('/', (req, res) => {
   try {
-    if (!req.query.openid) return res.redirect(`/auth?url=` + decodeURIComponent(`${req.protocol}://${req.get('host')}${req.originalUrl}`))
-    res.redirect(CONFIG.page)
+    if (!req.query.openid) return res.redirect(`${CONFIG.nginxPath}/auth?url=` + decodeURIComponent(`${req.protocol}://${req.get('host')}${CONFIG.nginxPath}${req.originalUrl}`))
+    res.redirect(`${CONFIG.page}${CONFIG.page.indexOf('?')===-1?'?':'&'}openid=${req.query.openid}&st=${new Date().getTime()}`)
   } catch (err) {
     res.send(err)
   }
