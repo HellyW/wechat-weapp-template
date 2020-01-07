@@ -18,11 +18,11 @@ export default {
     let self = this
     this.$wx.ready(()=>{
       // 当前页面JSSDK配置
-      console.log('wechat jssdk is ready')
+      console.log('[page] wechat jssdk is ready')
       self.demo()
     })
     this.$wx.error(function(res){
-      console.log(`wechat jssdk init is error [${res}]`)
+      console.log(`[page] wechat jssdk init is error [${res}]`)
     })
   },
   methods: {

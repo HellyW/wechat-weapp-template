@@ -1,7 +1,7 @@
 {
   "name": "weapp",
   "version": "1.0.0",
-  "description": "A Vue.js project",
+  "description": "wechat-web-template",
   "author": "wahao-mac <wuhaohao1993@outlook.com>",
   "private": true,
   "scripts": {
